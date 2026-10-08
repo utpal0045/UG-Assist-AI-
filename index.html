@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="as">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Utpal AI | Indian & Assam Knowledge Assistant</title>
+
+  <meta name="description"
+        content="Utpal AI - Free browser based local AI assistant .">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="background"></div>
+
+<!-- ================= LOGIN ================= -->
+
+<section id="loginPage" class="page active">
+
+  <div class="glass login-card">
+
+    <div class="ai-logo">
+      ✦
+    </div>
+
+    <h1>Utpal AI</h1>
+
+    <p class="subtitle">
+      Your Personal Knowledge Assistant
+    </p>
+
+    <input
+      id="loginName"
+      type="text"
+      placeholder="Enter your name"
+      autocomplete="name"
+    >
+
+    <button onclick="login()">
+      Enter Assistant →
+    </button>
+
+    <div class="free-badge">
+      FREE • NO API KEY • BROWSER AI
+    </div>
+
+  </div>
+
+</section>
+
+
+<!-- ================= PROFILE ================= -->
+
+<section id="detailsPage" class="page">
+
+  <div class="glass form-card">
+
+    <div class="small-logo">✦</div>
+
+    <h1>Build Your Profile</h1>
+
+    <p class="subtitle">
+      Tell the assistant a little about yourself.
+    </p>
+
+    <input
+      id="userName"
+      type="text"
+      placeholder="Your name"
+    >
+
+    <input
+      id="userAge"
+      type="number"
+      placeholder="Your age"
+    >
+
+    <input
+      id="userInterest"
+      type="text"
+      placeholder="Your interests"
+    >
+
+    <textarea
+      id="userAbout"
+      placeholder="Write something about yourself..."
+    ></textarea>
+
+    <button onclick="saveProfile()">
+      Continue →
+    </button>
+
+  </div>
+
+</section>
+
+
+<!-- ================= DASHBOARD ================= -->
+
+<section id="dashboard" class="dashboard-page">
+
+  <header class="topbar">
+
+    <div class="brand">
+
+      <div class="brand-icon">✦</div>
+
+      <div>
+        <h2>Utpal AI</h2>
+        <span id="welcomeText">
+          Personal Knowledge Assistant
+        </span>
+      </div>
+
+    </div>
+
+    <button
+      class="logout"
+      onclick="logout()"
+    >
+      Logout
+    </button>
+
+  </header>
+
+
+  <main class="dashboard-grid">
+
+
+    <!-- ================= PROFILE ================= -->
+
+    <aside class="glass profile-card">
+
+      <div
+        class="avatar"
+        id="avatar"
+      >
+        U
+      </div>
+
+      <h2 id="profileName">
+        User
+      </h2>
+
+      <p id="profileAbout">
+        Welcome to Utpal AI.
+      </p>
+
+
+      <div class="profile-info">
+
+        <span>AGE</span>
+        <b id="profileAge">-</b>
+
+      </div>
+
+
+      <div class="profile-info">
+
+        <span>INTERESTS</span>
+        <b id="profileInterest">-</b>
+
+      </div>
+
+
+      <div class="knowledge-box">
+
+        <h3>Knowledge Base</h3>
+
+        <p>
+          🇮🇳 Indian History
+        </p>
+
+        <p>
+          🟢 Assam History
+        </p>
+
+        <p>
+          📚 General Knowledge
+        </p>
+
+        <p>
+          ⚖ Indian Polity
+        </p>
+
+        <p>
+          🏆 World Records
+        </p>
+
+        <p>
+          🥇 Achievements
+        </p>
+
+      </div>
+
+    </aside>
+
+
+    <!-- ================= CHAT ================= -->
+
+    <section class="glass chat-card">
+
+
+      <div class="chat-header">
+
+        <div>
+
+          <h2>
+            AI Knowledge Assistant
+          </h2>
+
+          <span>
+            <i></i>
+            Local Knowledge Engine
+          </span>
+
+        </div>
+
+        <button
+          class="clear-btn"
+          onclick="clearChat()"
+        >
+          Clear
+        </button>
+
+      </div>
+
+
+      <!-- MESSAGES -->
+
+      <div
+        id="chatMessages"
+        class="messages"
+      >
+
+        <div class="message ai">
+
+          <div class="message-name">
+            AI
+          </div>
+
+          <p>
+            নমস্কাৰ! 👋
+            মই Utpal AI।
+
+            তুমি অসম আৰু ভাৰতৰ ইতিহাস,
+            General Knowledge,
+            Indian Polity,
+            World Records,
+            famous personalities,
+            awards আৰু বহুতো বিষয়ত
+            মোক প্ৰশ্ন কৰিব পাৰা।
+          </p>
+
+        </div>
+
+      </div>
+
+
+      <!-- QUICK QUESTIONS -->
+
+      <div class="quick-area">
+
+        <button onclick="quickAsk('চুকাফা কোন আছিল?')">
+          চুকাফা
+        </button>
+
+        <button onclick="quickAsk('লাচিত বৰফুকন কোন আছিল?')">
+          লাচিত
+        </button>
+
+        <button onclick="quickAsk('ভাৰত কেতিয়া স্বাধীন হৈছিল?')">
+          স্বাধীনতা
+        </button>
+
+        <button onclick="quickAsk('ভাৰতীয় সংবিধান কেতিয়া কাৰ্যকৰী হৈছিল?')">
+          সংবিধান
+        </button>
+
+        <button onclick="quickAsk('ভাৰতৰ প্ৰধানমন্ত্ৰী কোন?')">
+          PM
+        </button>
+
+        <button onclick="quickAsk('World Record কি কি আছে?')">
+          Records
+        </button>
+
+      </div>
+
+
+      <!-- INPUT -->
+
+      <div class="input-area">
+
+        <input
+          id="userInput"
+          type="text"
+          placeholder="Ask anything..."
+          onkeydown="handleKey(event)"
+        >
+
+        <button
+          class="mic-btn"
+          onclick="startVoice()"
+          title="Voice Assistant"
+        >
+          🎙
+        </button>
+
+        <button
+          class="send-btn"
+          onclick="sendMessage()"
+        >
+          ➤
+        </button>
+
+      </div>
+
+
+      <div
+        id="voiceStatus"
+        class="voice-status"
+      ></div>
+
+
+    </section>
+
+  </main>
+
+</section>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
